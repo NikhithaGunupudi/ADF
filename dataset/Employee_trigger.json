@@ -1,0 +1,13 @@
+{
+	"name": "Employee_trigger",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "lnk_to_tgt_emp",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

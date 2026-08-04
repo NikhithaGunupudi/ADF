@@ -1,0 +1,54 @@
+{
+	"name": "PL_STORED_PROC",
+	"properties": {
+		"activities": [
+			{
+				"name": "STORED_PROC",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[sample]",
+					"storedProcedureParameters": {
+						"dbname": {
+							"value": {
+								"value": "@pipeline().parameters.dbname",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"table": {
+							"value": {
+								"value": "@pipeline().parameters.table",
+								"type": "Expression"
+							},
+							"type": "String"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "DS_STORED_PROC",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"parameters": {
+			"table": {
+				"type": "string"
+			},
+			"dbname": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2026-07-30T12:17:20Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

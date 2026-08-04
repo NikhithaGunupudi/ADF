@@ -1,0 +1,19 @@
+{
+	"name": "delete_raw_data",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Raw_to_bronze",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "emp.csv",
+				"container": "raw"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,15 @@
+{
+	"name": "dfnikhitha",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "1d9c2bb1-40d9-4510-8fa0-04351ac142fb",
+		"tenantId": "82d6e5ba-cb78-4006-9fca-653c459bff20"
+	}
+}
