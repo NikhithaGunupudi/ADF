@@ -58,13 +58,47 @@
 									"referenceName": "PL_CHILD",
 									"type": "PipelineReference"
 								},
-								"waitOnCompletion": true
+								"waitOnCompletion": true,
+								"parameters": {
+									"table": {
+										"value": "@item().TableName",
+										"type": "Expression"
+									},
+									"schema": {
+										"value": "@item().TableSchema",
+										"type": "Expression"
+									},
+									"watermarkcolumn": {
+										"value": "@item().WatermarkColumn",
+										"type": "Expression"
+									},
+									"watermarktable": {
+										"value": "@pipeline().parameters.WatermarkTable",
+										"type": "Expression"
+									},
+									"collastload": {
+										"value": "@item().LastLoadValue",
+										"type": "Expression"
+									},
+									"TableType": {
+										"value": "@pipeline().parameters.TableType",
+										"type": "Expression"
+									}
+								}
 							}
 						}
 					]
 				}
 			}
 		],
+		"parameters": {
+			"TableType": {
+				"type": "string"
+			},
+			"WatermarkTable": {
+				"type": "string"
+			}
+		},
 		"annotations": []
 	}
 }
