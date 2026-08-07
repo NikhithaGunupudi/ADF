@@ -7,11 +7,11 @@
 		"typeProperties": {
 			"server": "localhost\\SQLEXPRESS01",
 			"database": "ADFDemo",
-			"encrypt": "mandatory",
+			"encrypt": "optional",
 			"trustServerCertificate": false,
 			"authenticationType": "SQL",
 			"userName": "nikki",
-			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJlZGFiMmI5Yy1kNDdlLTQxZDMtYjM2Yi0yOTAxNjFhZmU2YmQiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI1YWQzODRiMi05ZTI2LTQ2N2MtOWQ5Ni1hZDYzNjYyZTA4MWQiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
 		},
 		"connectVia": {
 			"referenceName": "integrationRuntime2",
