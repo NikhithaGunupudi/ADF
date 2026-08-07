@@ -36,10 +36,65 @@
 					},
 					"dataset": {
 						"referenceName": "DS_CHILD",
+						"type": "DatasetReference",
+						"parameters": {
+							"table": {
+								"value": "@pipeline().parameters.table",
+								"type": "Expression"
+							}
+						}
+					},
+					"firstRowOnly": false
+				}
+			},
+			{
+				"name": "Lookup2",
+				"type": "Lookup",
+				"dependsOn": [
+					{
+						"activity": "Lookup1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlServerSource",
+						"sqlReaderQuery": {
+							"value": "@concat(\n'SELECT LastLoadValue FROM ',\npipeline().parameters.schema,\n'.',\npipeline().parameters.watermarktable,\n' WHERE TableSchema = ''',\npipeline().parameters.schema,\n''' AND TableName = ''',\npipeline().parameters.table,\n''''\n)",
+							"type": "Expression"
+						},
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"dataset": {
+						"referenceName": "DS_SQL_SERVER",
 						"type": "DatasetReference"
 					},
 					"firstRowOnly": false
 				}
+			},
+			{
+				"name": "If Condition1",
+				"type": "IfCondition",
+				"dependsOn": [
+					{
+						"activity": "Lookup2",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": []
 			}
 		],
 		"parameters": {
@@ -50,6 +105,12 @@
 				"type": "string"
 			},
 			"watermarkcolumn": {
+				"type": "string"
+			},
+			"watermarktable": {
+				"type": "string"
+			},
+			"collastload": {
 				"type": "string"
 			}
 		},
