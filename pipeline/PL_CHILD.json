@@ -48,7 +48,7 @@
 							}
 						}
 					},
-					"firstRowOnly": true
+					"firstRowOnly": false
 				}
 			},
 			{
@@ -84,7 +84,7 @@
 						"referenceName": "DS_SQL_SERVER",
 						"type": "DatasetReference"
 					},
-					"firstRowOnly": true
+					"firstRowOnly": false
 				}
 			},
 			{
@@ -101,7 +101,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"expression": {
-						"value": "@greater(\n    activity('LKP_OF_TABLE').output.firstRow.MaxWatermark,\n    activity('Lookup2').output.firstRow.LastLoadValue\n)",
+						"value": "@greater(\n    activity('LKP_OF_TABLE').output.value[0].MaxWatermark,\n    activity('Lookup2').output.value[0].LastLoadValue\n)",
 						"type": "Expression"
 					},
 					"ifTrueActivities": [
