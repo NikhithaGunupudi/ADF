@@ -5,6 +5,14 @@
 			"referenceName": "LS_SQL",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"table": {
+				"type": "string"
+			},
+			"schema": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "SqlServerTable",
 		"schema": []
