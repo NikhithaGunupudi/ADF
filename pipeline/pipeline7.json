@@ -1,0 +1,11 @@
+{
+	"name": "pipeline7",
+	"properties": {
+		"parameters": {
+			"Student": {
+				"type": "array"
+			}
+		},
+		"annotations": []
+	}
+}
