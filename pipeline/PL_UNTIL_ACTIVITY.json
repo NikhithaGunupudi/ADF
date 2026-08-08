@@ -1,0 +1,50 @@
+{
+	"name": "PL_UNTIL_ACTIVITY",
+	"properties": {
+		"activities": [
+			{
+				"name": "Until1",
+				"type": "Until",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"expression": {
+						"value": "@equals(pipeline().parameters.Test,'done')",
+						"type": "Expression"
+					},
+					"activities": [
+						{
+							"name": "Set variable1",
+							"type": "SetVariable",
+							"dependsOn": [],
+							"policy": {
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "Set_var",
+								"value": {
+									"value": "@pipeline().parameters.Test",
+									"type": "Expression"
+								}
+							}
+						}
+					],
+					"timeout": "0.12:00:00"
+				}
+			}
+		],
+		"parameters": {
+			"Test": {
+				"type": "string"
+			}
+		},
+		"variables": {
+			"Set_var": {
+				"type": "String"
+			}
+		},
+		"annotations": []
+	}
+}
