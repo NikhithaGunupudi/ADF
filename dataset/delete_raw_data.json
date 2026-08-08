@@ -5,12 +5,17 @@
 			"referenceName": "Raw_to_bronze",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"LastModified": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "Binary",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "emp.csv",
+				"fileName": "*",
 				"container": "raw"
 			}
 		}
