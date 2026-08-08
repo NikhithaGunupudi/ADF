@@ -3,43 +3,9 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "ForEach1",
-				"type": "ForEach",
-				"dependsOn": [],
-				"userProperties": [],
-				"typeProperties": {
-					"items": {
-						"value": "@pipeline().parameters.Student",
-						"type": "Expression"
-					},
-					"activities": [
-						{
-							"name": "Append variable1",
-							"type": "AppendVariable",
-							"dependsOn": [],
-							"userProperties": [],
-							"typeProperties": {
-								"variableName": "Append_var",
-								"value": {
-									"value": "@item()",
-									"type": "Expression"
-								}
-							}
-						}
-					]
-				}
-			},
-			{
 				"name": "Set variable1",
 				"type": "SetVariable",
-				"dependsOn": [
-					{
-						"activity": "ForEach1",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
+				"dependsOn": [],
 				"policy": {
 					"secureOutput": false,
 					"secureInput": false
@@ -49,9 +15,15 @@
 					"variableName": "pipelineReturnValue",
 					"value": [
 						{
-							"key": "Var",
+							"key": "Child",
 							"value": {
-								"type": "Array"
+								"type": "Array",
+								"content": [
+									{
+										"type": "String",
+										"content": "[\"RAM\",\"NIKKI\"]"
+									}
+								]
 							}
 						}
 					],
